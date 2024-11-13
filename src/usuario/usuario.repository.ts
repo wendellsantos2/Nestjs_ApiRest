@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { CriaUsuarioDto } from './dto/CriaUsuarioDto';
+import { UsuarioEntity } from './usuario.entity';
 
 @Injectable()
 export class UsuarioRepository {
-  private usuarios: CriaUsuarioDto[] = [];
+  private usuarios: UsuarioEntity[] = [];
 
-  async salvar(usuario: CriaUsuarioDto): Promise<CriaUsuarioDto> {
+  async salvar(usuario: UsuarioEntity): Promise<CriaUsuarioDto> {
     this.usuarios.push(usuario);
     return usuario;  // Retorne o usuário recém-cadastrado
   }
 
-  async listar(): Promise<CriaUsuarioDto[]> {
+  async listar(): Promise<UsuarioEntity[]> {
     return this.usuarios;
   }
 
